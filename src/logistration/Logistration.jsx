@@ -109,7 +109,7 @@ const Logistration = (props) => {
               )}
               <div id="main-content" className="main-content">
                 {!institutionLogin && (
-                  <h3 className="mb-4.5">{formatMessage(messages['logistration.sign.in'])}</h3>
+                  <h3 className="mb-4.5">neonto sign in</h3>
                 )}
                 <LoginPage institutionLogin={institutionLogin} handleInstitutionLogin={handleInstitutionLogin} />
               </div>
@@ -126,7 +126,7 @@ const Logistration = (props) => {
                 : (!isValidTpaHint() && !hideRegistrationLink && (
                   <Tabs defaultActiveKey={selectedPage} id="controlled-tab" onSelect={(tabKey) => handleOnSelect(tabKey, selectedPage)}>
                     <Tab title={formatMessage(messages['logistration.register'])} eventKey={REGISTER_PAGE} />
-                    <Tab title={formatMessage(messages['logistration.sign.in'])} eventKey={LOGIN_PAGE} />
+                    <Tab title={"Neonto Sign in"} eventKey={LOGIN_PAGE} />
                   </Tabs>
                 ))}
               { key && (
@@ -135,7 +135,7 @@ const Logistration = (props) => {
               <div id="main-content" className="main-content">
                 {!institutionLogin && !isValidTpaHint() && hideRegistrationLink && (
                   <h3 className="mb-4.5">
-                    {formatMessage(messages[selectedPage === LOGIN_PAGE ? 'logistration.sign.in' : 'logistration.register'])}
+                    neonto sign in
                   </h3>
                 )}
                 {selectedPage === LOGIN_PAGE
