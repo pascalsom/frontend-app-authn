@@ -79,6 +79,8 @@ const LoginPage = (props) => {
 
   useEffect(() => {
     sendPageEvent('login_and_registration', 'login');
+    if(!queryParams['admin'])
+      window.location.href = '/auth/login/azuread-b2c-oauth2/?auth-entry=login'
   }, []);
 
   useEffect(() => {
@@ -118,7 +120,10 @@ const LoginPage = (props) => {
         context: {
           errorMessage: thirdPartyErrorMessage,
         },
-      }));
+      })
+      );
+      // on any Errors, redirect to Base Url
+      window.location.href = `${getConfig().LMS_BASE_URL}`;
     }
   }, [thirdPartyErrorMessage]);
 

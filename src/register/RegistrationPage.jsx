@@ -156,9 +156,11 @@ const RegistrationPage = (props) => {
     if (backendValidations) {
       if (registrationEmbedded) {
         setTemporaryErrors(prevErrors => ({ ...prevErrors, ...backendValidations }));
+        // on any Errors, redirect to Base Url
         window.location.href = `${getConfig().LMS_BASE_URL}`;
       } else {
         setErrors(prevErrors => ({ ...prevErrors, ...backendValidations }))
+        // on any Errors, redirect to Base Url
         window.location.href = `${getConfig().LMS_BASE_URL}`;
       }
     }
@@ -167,6 +169,7 @@ const RegistrationPage = (props) => {
   useEffect(() => {
     if (registrationErrorCode) {
       setErrorCode(prevState => ({ type: registrationErrorCode, count: prevState.count + 1 }));
+      // on any Errors, redirect to Base Url
       window.location.href = `${getConfig().LMS_BASE_URL}`;
     }
   }, [registrationErrorCode]);
