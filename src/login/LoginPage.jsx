@@ -81,7 +81,7 @@ const LoginPage = (props) => {
     sendPageEvent('login_and_registration', 'login');
     // redirect to microsoft entra user flow if it is not admin login
     if(new URLSearchParams(window.location.search).get("admin") !== "true") {
-      window.location.href = '/auth/login/azuread-b2c-oauth2/?auth-entry=login'
+      window.location.href = getConfig().LMS_BASE_URL + '/auth/login/azuread-b2c-oauth2/?auth-entry=login'
   }}, []);
 
   useEffect(() => {
